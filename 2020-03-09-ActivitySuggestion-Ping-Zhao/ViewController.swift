@@ -10,11 +10,41 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var tempTextField: UITextField!
+    
+    @IBOutlet weak var labelActivityRec: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
 
 
+    @IBAction func buttonActivityPressed(_ sender: UIButton) {
+        let tempString = tempTextField.text!
+        let tempInt = Int(tempString)
+        var recActivity = ""
+        
+        if tempInt! >= 80 {
+            recActivity = "Swimming"
+        }else if tempInt! >= 60 {
+            recActivity = "Tennis"
+        }else if tempInt! >= 40 {
+            recActivity = "Golf"
+        }else{
+            recActivity = "Skiing"
+        }
+        
+        labelActivityRec.text = "Activity: \(recActivity)"
+        
+    // >80 Swimming
+    // 60-80 Tennis
+    // 40-60 Golf
+    // <40 Skiing
+        
+        
+        
+    }
 }
 
